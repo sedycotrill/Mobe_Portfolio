@@ -1,0 +1,111 @@
+
+/* Original Dark Mode */
+#root:has(main[data-theme="night"]) {
+  --page-bg: #0b1120;
+  --text-main: #f3f4f6;
+  --text-secondary: #cbd5e1;
+  --surface-bg: #111827;
+  --border-color: #374151;
+}
+
+/* Main background */
+#root main[data-theme="night"] {
+  background-color: #0b1120 !important;
+  color: #f3f4f6;
+}
+
+/* Header */
+#root main[data-theme="night"] header {
+  background-color: rgb(11 17 32 / 95%) !important;
+  color: #f3f4f6;
+  border-color: #374151 !important;
+}
+
+/* Cream hero card stays cream */
+#root main[data-theme="night"] .bg-\[\#FFFDF0\] {
+  background-color: #FFFDF0 !important;
+  color: #252525 !important;
+}
+
+/* Education and Contact retain cobalt blue */
+#root main[data-theme="night"] section.bg-\[\#246FB3\] {
+  background-color: #246FB3 !important;
+  color: #fff !important;
+}
+
+/* Skills section */
+#root main[data-theme="night"] section.bg-\[\#252525\] {
+  background-color: #111827 !important;
+  color: #f3f4f6 !important;
+}
+
+/* Achievements */
+#root main[data-theme="night"] section.bg-\[\#EAE6D9\] {
+  background-color: #111827 !important;
+}
+
+/* Project cards */
+#root main[data-theme="night"] .bg-\[\#D9E9F5\],
+#root main[data-theme="night"] .bg-\[\#E7E2D4\] {
+  background-color: #1e293b !important;
+}
+
+/* Text */
+#root main[data-theme="night"] .text-\[\#252525\],
+#root main[data-theme="night"] .text-\[\#454545\],
+#root main[data-theme="night"] .text-\[\#555555\],
+#root main[data-theme="night"] .text-\[\#666666\],
+#root main[data-theme="night"] .text-\[\#777777\],
+#root main[data-theme="night"] .text-\[\#888888\] {
+  color: #cbd5e1 !important;
+}
+
+/* Restore dark text inside the cream hero card */
+#root main[data-theme="night"] .bg-\[\#FFFDF0\] .text-\[\#252525\],
+#root main[data-theme="night"] .bg-\[\#FFFDF0\] .text-\[\#555555\] {
+  color: #252525 !important;
+}
+
+/* Borders */
+#root main[data-theme="night"] section.border-t,
+#root main[data-theme="night"] [class*="border-[#252525]"] {
+  border-color: #374151 !important;
+}
+
+/* Footer */
+#root main[data-theme="night"] footer {
+  background-color: #111827 !important;
+  color: #cbd5e1 !important;
+}
+
+/* Smooth transitions */
+#root main,
+#root main section,
+#root main header,
+#root main footer {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* Light mode: warm editorial background */
+#root main[data-theme="light"] {
+  background-color: #FFFDF0;
+  color: #252525;
+}
+
+/* Subtle separation between sections */
+#root main[data-theme="light"] section.border-t {
+  border-color: rgb(37 37 37 / 18%);
+}
+
+/* Softer header */
+#root main[data-theme="light"] header {
+  background-color: rgb(255 253 240 / 96%);
+}
+
+/* Warm footer */
+#root main[data-theme="light"] footer {
+  background-color: #F0EBDD;
+}
