@@ -1,6 +1,6 @@
 // Content for the portfolio. Replace values in place; the shapes stay the same.
 // To use a real image, import it (import shot from "../../assets/shot.png") and set `image: shot`.
-import heroPic from "../../assets/heroPic.jpg";
+import heroCutout from "../../assets/heroCutout.png";
 import awsCert from "../../assets/awscert.jpg";
 import githubCert from "../../assets/githubcert.jpg";
 import digitalsafetyandawareness from "../../assets/digitalsafetyandsecurityawareness.jpg";
@@ -28,7 +28,7 @@ export const certificates = [
 export const profile = {
   name: "Desiree Mobe",
   tagline: "Aspiring Developer & Creative Thinker",
-  portrait: heroPic,
+  portrait: heroCutout,
   email: "mobe.desiree.limare@gmail.com",
   github: "https://github.com/sedycotrill",
 
@@ -56,13 +56,14 @@ export const personal = {
 };
 
 export const sections = [
-  { id: "home", label: "Home" },
-  { id: "introduction", label: "Introduction" },
-  { id: "personal", label: "Little about me" },
-  { id: "education", label: "Education" },
-  { id: "experience", label: "Experience" },
-  { id: "certifications", label: "Certificates" },
-  { id: "contact", label: "Contact" },
+  { id: "home", label: "Home ౨ৎ" },
+  { id: "introduction", label: "Introduction ౨ৎ" },
+  { id: "personal", label: "Little about me ౨ৎ" },
+  { id: "education", label: "Education ౨ৎ" },
+  { id: "experience", label: "Experience ౨ৎ" },
+  { id: "skills", label: "Skills ౨ৎ" },
+  { id: "certifications", label: "Certificates ౨ৎ" },
+  { id: "contact", label: "Contact ౨ৎ" },
 ];
 
 export const education = [
@@ -81,3 +82,18 @@ export const contributions = [
   { group: "Documentation", items: [["EduRank", "Gamified E-learning System"], ["SchoolZone", "Point of Sale and Management System"]] },
   { group: "UI Design", items: [["Kalinga Pin", "A Map of Collective Care"], ["FWD", "Employee Monitoring System"]] },
 ];
+
+export const work = [
+  { period: "November 2024 – November 2026 ", role: "Usher", org: "SM Mall of Asia Arena", text: "Assisted with guest services, crowd management, and venue safety to ensure smooth event operations." },
+];
+
+
+export const skillGroups = [
+  { title: "Technical Skills",
+    items: ["Tailwind CSS", "UI/UX Design", "C#", "Responsive Web Design", "TypeScript", "React.js", "Frontend Development", ]},
+  { title: "Tools & Technologies",
+    items: [  "Canva", "Draw.io", "GitHub", "Figma", "Lucid Chart", "shadcn / ui",  "Lucide React", "Visual Studio Code",]},
+  { title: "Soft Skills",
+    items: ["Self-Learning", "Creativity", "Communication", "Problem-Solving", "Adaptability", "Project Coordination", ]},
+];
+

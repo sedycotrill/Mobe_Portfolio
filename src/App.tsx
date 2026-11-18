@@ -1,8 +1,7 @@
 import "./App.css";
 import {
   ArrowUpRight, BookOpen, Cake, ChevronLeft, ChevronRight, Code2, Coffee, Compass,
-  GraduationCap, Heart, Mail, Menu, Moon, Palette, Sun, X,
-} from "lucide-react";
+  GraduationCap, Heart, Mail, Menu, Moon, Palette, Sun, Users, X, Laptop} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import {
   certificates,
@@ -12,6 +11,8 @@ import {
   profile,
   personal,
   sections,
+  skillGroups,
+  work,
 } from "./pages/data/placeholder";
 import CursorFollower from "./components/ui/cursorfollower";
 
@@ -30,7 +31,9 @@ const mbti = personal.facts.find((f) => f.label === "MBTI");
 const otherFacts = personal.facts.filter((f) => f !== birthday && f !== mbti);
 const groupIcons = [Palette, Compass, Heart, Coffee];
 const eduIcons = [BookOpen, GraduationCap];
-
+const year = birthday?.value.match(/\d{4}/)?.[0];
+const skillIcons = [Code2, Laptop, Users];
+  
 function App() {
   const [isNightMode, setIsNightMode] = useState(
     () => localStorage.getItem("portfolio-theme") === "night"
@@ -141,13 +144,15 @@ function App() {
           <div className="hero-block">
             <Star size={90} className="spin star-deco" />
             <figure className="photo"><img src={profile.portrait} alt={`Portrait of ${profile.name}`} /></figure>
-            <div className="badge" aria-hidden="true">
-              <svg className="spin badge-ring" viewBox="0 0 120 120">
-                <defs><path id="badge-circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" /></defs>
-                <text><textPath href="#badge-circle" textLength="286" lengthAdjust="spacing">{profile.tagline} ✱</textPath></text>
-              </svg>
-              <Star size={26} className="badge-star" />
-            </div>
+            {mbti && (
+  <div className="badge" aria-hidden="true">
+    <span className="badge-vinyl spin" />
+    <span className="badge-label">
+      <b>{mbti.value}</b>
+      {year && <small>Est. {year}</small>}
+    </span>
+  </div>
+)}
           </div>
         </div>
       </section>
@@ -239,27 +244,58 @@ function App() {
       </section>
 
       {/* Experience */}
-      <section id="experience" className="sec deep inv">
-        <h2>Experience</h2>
-        <div className="sec-body reveal">
-          <div className="timeline">
-            {experience.map((x, i) => (
-              <article key={i} className="row">
-                <p className="when">{x.period}</p>
-                <div><p className="school">{x.role}</p><h3>{x.title}</h3></div>
-              </article>
-            ))}
-          </div>
-          <div className="contrib">
-            {contributions.map((c) => (
-              <div key={c.group}>
-                <h3>{c.group}</h3>
-                <ul>{c.items.map(([n, d]) => <li key={n + d}><strong>{n}:</strong> {d}</li>)}</ul>
-              </div>
-            ))}
-          </div>
+<section id="experience" className="sec deep inv">
+  <h2>Experience</h2>
+  <div className="sec-body reveal">
+    <h3 className="exp-sub">Work</h3>
+    <div className="timeline">
+      {work.map((x, i) => (
+        <article key={i} className="row">
+          <p className="when">{x.period}</p>
+          <div><p className="school">{x.org}</p><h3>{x.role}</h3><p>{x.text}</p></div>
+        </article>
+      ))}
+    </div>
+
+    <h3 className="exp-sub">Projects &amp; contributions</h3>
+    <div className="timeline">
+      {experience.map((x, i) => (
+        <article key={i} className="row">
+          <p className="when">{x.period}</p>
+          <div><p className="school">{x.role}</p><h3>{x.title}</h3></div>
+        </article>
+      ))}
+    </div>
+    <div className="contrib">
+      {contributions.map((c) => (
+        <div key={c.group}>
+          <h3>{c.group}</h3>
+          <ul>{c.items.map(([n, d]) => <li key={n + d}><strong>{n}:</strong> {d}</li>)}</ul>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* Skills */}
+<section id="skills" className="sec">
+  <h2>Skills</h2>
+  <div className="sec-body reveal skill-groups">
+    {skillGroups.map((g, i) => {
+      const Icon = skillIcons[i % skillIcons.length];
+      return (
+        <div key={g.title} className="skill-group">
+          <div className="skill-head">
+            <span className="me-icon"><Icon size={20} /></span>
+            <h3>{g.title}</h3>
+            <span className="skill-count">{g.items.length}</span>
+          </div>
+          <ul className="skill-list">{g.items.map((s) => <li key={s}>{s}</li>)}</ul>
+        </div>
+      );
+    })}
+  </div>
+</section>
 
       {/* Certificates */}
       <section id="certifications" className="sec tint">
